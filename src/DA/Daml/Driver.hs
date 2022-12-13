@@ -7,9 +7,6 @@
 
 module DA.Daml.Driver where
 
-import           Prelude                                hiding (log)
-
-
 import qualified Data.Text.IO                      as T
 import qualified System.Directory                  as D (createDirectoryIfMissing)
 
