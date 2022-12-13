@@ -1,0 +1,86 @@
+name:                template-templates
+version:             0.1.0.0
+github:              "githubuser/template-templates"
+license:             NONE
+author:              "chris norris"
+maintainer:          "chris.norris@digitalasset.com"
+copyright:           "Copyright (c) 2022, Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved."
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+description:         Please see the README
+
+dependencies:
+  - aeson
+  - aeson-casing
+  - aeson-pretty
+  - async
+  - attoparsec
+  - base >= 4.7 && < 5
+  - bytestring
+  - containers
+  - co-log
+  - data-default
+  - data-ordlist
+  - deriving-compat
+  - directory
+  - exceptions
+  - extra
+  - filepath
+  - free
+  - mtl
+  - process
+  - prettyprinter
+  - raw-strings-qq
+  - regex-tdfa
+  - shake
+  - string-interpolate
+  - temporary
+  - text
+  - text-show
+  - time
+  - transformers
+  - unordered-containers
+  - yaml
+  - word-wrap
+  - zip-archive
+
+ghc-options:
+  - -j
+  - -Wall
+  - -Wcompat
+  - -Widentities
+  - -Wpartial-fields
+  - -Wincomplete-uni-patterns
+  - -Wincomplete-record-updates
+  - -Wredundant-constraints
+  - -Werror=incomplete-patterns
+  - -Werror=missing-methods
+  - -Werror=missing-fields
+  - -fhide-source-paths
+  - -fno-warn-name-shadowing
+
+default-extensions:
+  - LambdaCase
+  - ScopedTypeVariables
+  - ImportQualifiedPost
+
+library:
+  source-dirs: src
+
+_executable-ghc-options: &executable-ghc-options
+  - -threaded
+  - -rtsopts
+  - -with-rtsopts=-N4
+  - -O2
+
+executables:
+  template-templates:
+    source-dirs: cli
+    main: TemplateTemplates.hs
+    dependencies:
+      - optparse-applicative
+      - template-templates
+    ghc-options: *executable-ghc-options
