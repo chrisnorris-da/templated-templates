@@ -48,7 +48,7 @@ instance FromJSON Derived where
 instance FromJSON BaseT where
   parseJSON (Y.Object v) =
     BaseT <$> v .: "baseName" <*> v .: "signatory" <*> v .: "operator"
-  parseJSON _ = fail "Expected Object for Base value"
+  parseJSON _ = fail "Expected Object for BaseTemplate value"
 
 decodeYaml :: FilePath -> IO Templates
 decodeYaml f = do
